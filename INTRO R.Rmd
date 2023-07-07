@@ -1,0 +1,88 @@
+---
+title: "Introducción a R"
+author: "CARBONELLY, Shendo"
+date: '2023-07-06'
+output: html_document
+---
+```{r}
+
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# INTRODUCCIÓN A R
+
+Se revisará los fundamentos de R
+
+
+
+```{r}
+dormirh <- c(8, 6, 4, 3, 5, 10)
+NOMBRES <- c("Moises", "Mika", "Dorian", "Ranier", "Emily", "Carlos")
+NOMBRES [4]
+
+```
+
+
+```{r}
+Hdormir = list(NOMBRE = NOMBRES,
+               horas = dormirh)
+Hdormir$horas[2]
+```
+
+
+```{r TABLAS}
+df_dormir <- data.frame(cbind(nombre = NOMBRES, horas = dormirh))
+df_dormir
+
+```
+
+```{r leertxt}
+gbtemp <- read.csv("data/gbtemp.csv",header = TRUE, sep = ",")
+head(gbtemp, 2)
+
+```
+
+### Exploración 
+
+```{r explor_gbtemp}
+str(gbtemp)
+```
+```{r summary_gbtemp}
+summary(gbtemp)
+```
+
+## Análisis
+
+### Comparación (Prueba hipótesis)
+```{r}
+
+```
+
+```{r gbtemp_hipotesis}
+gbtemp$SEASON < - as.factor(gbtemp$SEASON)
+
+library(dplyr)
+gbtemp%>% group_by(SEASON) %>% 
+  summarise(mean_meas = mean(MEASUREMENT)
+```
+
+
+```{r}
+gbtemp%>% group_by(SEASON) %>% 
+  summarise(mean_meas = mean(MEASUREMENT)
+```
+### Análisis posterior (del ANOIVA)
+```{r post_gbtemp}
+aov_gbtemp <- aov(lm(MEASUREMENT = SEASON, 
+                        data =gbtemp))
+TukeyHSD(aov_gbtemp, "SEASON")
+```
+
+
+```{r}
+library(ggplot2)
+```
+
